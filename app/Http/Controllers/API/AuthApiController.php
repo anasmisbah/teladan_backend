@@ -56,16 +56,15 @@ class AuthApiController extends Controller
             "password"=>"required"
         ]);
 
-        if ($request->nim) {
-            $student = Student::where('nim',$request->nim)->first();
-
+        $student = Student::where('nim',$request->nip_or_nim)->first();
+        if ($student) {
             if ($student && Hash::check($validatedLogin['password'], $student->user->password)) {
                 auth()->loginUsingId($student->user_id);
             }else{
                 return response(['message'=>'Invalid Credential'],404);
             }
         } else {
-            $lecturer = Lecturer::where('nip',$request->nip)->first();
+            $lecturer = Lecturer::where('nip',$request->nip_or_nim)->first();
             if ($lecturer && Hash::check($validatedLogin['password'], $lecturer->user->password)) {
                 auth()->loginUsingId($lecturer->user_id);
             }else{

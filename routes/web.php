@@ -11,6 +11,18 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
+});
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('classroom', 'ClassroomController');
+    Route::resource('room', 'RoomController');
+    Route::resource('subject', 'SubjectController');
+    Route::resource('student', 'StudentController');
+    Route::resource('lecturer', 'LecturerController');
 });
