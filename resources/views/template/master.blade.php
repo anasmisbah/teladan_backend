@@ -15,6 +15,8 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('template/bower_components/Ionicons/css/ionicons.min.css') }}">
   <!-- Theme style -->
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="{{ asset('template/plugins/timepicker/bootstrap-timepicker.min.css') }}">
   <link rel="stylesheet" href="{{ asset('template/dist/css/AdminLTE.min.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -117,7 +119,7 @@
           <li  class="{{ Request::segment(1) == 'student' ? 'active':'' }}"><a href="{{ route('student.index') }}"><i class="fa fa-users"></i> <span>Mahasiswa</span></a></li>
           <li class="{{ Request::segment(1) == 'lecturer' ? 'active':'' }}"><a href="{{ route('lecturer.index') }}"><i class="fa fa-user"></i> <span>Dosen</span></a></li>
           <li class="{{ Request::segment(1) == 'subject' ? 'active':'' }}"><a href="{{ route('subject.index') }}"><i class="fa fa-tags"></i> <span>Mata Kuliah</span></a></li>
-          <li class="{{ Request::segment(1) == 'buku' ? 'active':'' }}"><a href=""><i class="fa fa-calendar"></i> <span>Jadwal</span></a></li>
+          <li class="{{ Request::segment(1) == 'schedule' ? 'active':'' }}"><a href="{{ route('schedule.index') }}"><i class="fa fa-calendar"></i> <span>Jadwal</span></a></li>
           <li class="{{ Request::segment(1) == 'room' ? 'active':'' }}"><a href="{{ route('room.index') }}"><i class="fa fa-building"></i> <span>Ruangan</span></a></li>
       <li class="{{ Request::segment(1) == 'classroom' ? 'active':'' }}"><a href="{{ route('classroom.index') }}"><i class="fa fa-home"></i> <span>Kelas</span></a></li>
       </ul>
@@ -365,6 +367,7 @@
 <script src="{{ asset('template/bower_components/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('template/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('template/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('template/dist/js/demo.js') }}"></script>
